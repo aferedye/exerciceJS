@@ -1,0 +1,49 @@
+#calculatrice {
+    width: 400px;
+    height: 535px;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+    border: 0.5px, solid, black;
+}
+#affichage {
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+#affichageTemp, #affichageLive {
+    width: 100%;
+    height: 50%;
+    text-align: right;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 3em;
+    color: #333;
+}
+#boutonMapping {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+.bouton {
+    width: 24.5%;
+    height: 75px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 2em;
+    text-align: center;
+    line-height: 75px;
+    color: #333;
+    cursor: pointer;
+}
+.double {
+    width: 49.5%;
+}
+.orange {
+    background-color: chocolate;
+}
