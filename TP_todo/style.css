@@ -1,0 +1,22 @@
+#formulaire {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.m-5 {
+    margin-top: 15px;
+}
+
+.wth-75 {
+    width: 70vw;
+}
+
+.wth-25 {
+    width: 20vw;
+}
+
+#searchDiv {
+    margin: auto;
+    width: max-content;
+}
