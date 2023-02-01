@@ -3,18 +3,7 @@ import { Task } from "./task.js";
 
 export class Ihm {
     constructor(formulaire,tableauHtmlResultat){
-        this.tasks = [
-            {
-                _id: 0,
-                _title: "Test",
-                _content: "Test"
-            },
-            {
-                _id: 1,
-                _title: "Test",
-                _content: "Test"
-            }
-        ];
+        this.tasks = [];
         this.formulaire = formulaire;
         this.tableauHtmlResultat = tableauHtmlResultat;
     }
@@ -23,8 +12,10 @@ export class Ihm {
         this.formulaire.addEventListener("submit", async (e) => {
             e.preventDefault();
             try {
-                await this.ajouter();
+                await this.ajouter()
                 console.log("Etape 1 finie !");
+                let id = document.querySelectorAll(".eraseTask")
+                this.eraseTask(id)
             } catch (error) {
                 console.error(error);
             }
@@ -68,7 +59,7 @@ export class Ihm {
         <td>${task._id}</td>
         <td>${task._title}</td>
         <td>${task._content}</td>
-        <td><button id="eraseTask">Supprimer</button><button id="completeTask">${statusButton}</button></td>
+        <td><button class="eraseTask" data-test="${task._id}">Supprimer</button><button id="completeTask">${statusButton}</button></td>
         </tr>
         `
     }
@@ -91,7 +82,7 @@ export class Ihm {
                 <td>${task._id}</td>
                 <td>${task._title}</td>
                 <td>${task._content}</td>
-                <td><button id="eraseTask" data-id="${task._id}">Supprimer</button><button id="completeTask">${statusButton}</button></td>
+                <td><button class="eraseTask" data-test="${task._id}">Supprimer</button><button id="completeTask">${statusButton}</button></td>
                 </tr>
                 `
             }
@@ -104,6 +95,14 @@ export class Ihm {
     }
 
     eraseTask(id) {
-        
-    }
-}
+        for(let xx= 0 ; xx < id.length ; xx++) {
+            id.item(xx).addEventListener('click', () => {
+                console.log(id.item(xx))
+            for(const i in this.tasks) {
+                if (id.item(xx).dataset.test == this.tasks[i]._id) {
+                    this.tasks.splice((id.item(xx).dataset.test + 1), 1)
+                    this.afficher(this.tasks[(i-1)])
+                }}
+        });
+        }
+    }}

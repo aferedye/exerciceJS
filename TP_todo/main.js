@@ -26,12 +26,3 @@ document.querySelector("#searchButton").addEventListener('click', async () => {
     
 
 })
-
-document.querySelector("#eraseTask").addEventListener('click', async () => {
-    const id = document.querySelector("#eraseTask")
-    ihm.eraseTask(id)
-
-    
-    
-
-})
